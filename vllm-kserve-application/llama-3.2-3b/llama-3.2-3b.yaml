@@ -8,7 +8,7 @@ spec:
     - chart: vllm-kserve
       helm:
         valueFiles:
-        - $values/vllm/values.yaml
+        - $values/vllm-kserve-application/llama-3.2-3b/values.yaml
       repoURL: https://redhat-ai-services.github.io/helm-charts/
       targetRevision: 0.3.7
     - ref: values
