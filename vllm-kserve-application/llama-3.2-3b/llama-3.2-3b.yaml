@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vllm-kserve-llama-3-2-3b-instruct
+spec:
+  project: default
+  sources:
+    - chart: vllm-kserve
+      helm:
+        valueFiles:
+        - $values/vllm/values.yaml
+      repoURL: https://redhat-ai-services.github.io/helm-charts/
+      targetRevision: 0.3.7
+    - ref: values
+      repoURL: 'https://github.com/jland-redhat/redhat-ai-services-helm-charts.git'
+      targetRevision: 'main'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: model-as-a-service
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
