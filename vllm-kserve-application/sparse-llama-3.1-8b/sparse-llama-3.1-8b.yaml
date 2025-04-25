@@ -8,7 +8,7 @@ spec:
     - chart: vllm-kserve
       helm:
         valueFiles:
-        - $values/vllm-kserve-application/sparse-llama-3.1-8b.yaml
+        - $values/vllm-kserve-application/sparse-llama-3.1-8b/sparse-llama-3.1-8b.yaml
       repoURL: https://redhat-ai-services.github.io/helm-charts/
       targetRevision: 0.3.7
     - ref: values
