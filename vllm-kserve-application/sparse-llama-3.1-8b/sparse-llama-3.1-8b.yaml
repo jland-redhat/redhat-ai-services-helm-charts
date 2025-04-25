@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vllm-kserve-llama-3-1-8b-instruct
+  name: vllm-kserve-sparse-llama-3.1-8b
 spec:
   project: default
   sources:
     - chart: vllm-kserve
       helm:
         valueFiles:
-        - $values/vllm-kserve-application/llama-3.1-8b/values.yaml
+        - $values/vllm-kserve-application/sparse-llama-3.1-8b.yaml
       repoURL: https://redhat-ai-services.github.io/helm-charts/
       targetRevision: 0.3.7
     - ref: values
