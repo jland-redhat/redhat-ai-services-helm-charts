@@ -1,0 +1,29 @@
+inferenceService:
+  storage:
+    storageUri: 'oci://quay.io/redhat-ai-services/modelcar-catalog:llama-3.1-8b-instruct'
+    mode: uri
+  args:
+    - "--max-model-len=23000"
+    - "--gpu-memory-utilization=0.99"
+  resources:
+    limits:
+      cpu: '4'
+      memory: 20Gi
+      nvidia.com/gpu: '1'
+    requests:
+      cpu: '2'
+      memory: 16Gi
+      nvidia.com/gpu: '1'
+  tolerations:
+  - effect: NoSchedule
+    key: nvidia.com/gpu
+    operator: Equal
+  - effect: NoSchedule
+    key: nvidia.com/gpu
+    operator: Equal
+    value: "True"
+endpoint:
+  externalRoute:
+    enabled: true
+  auth:
+    enabled: true
