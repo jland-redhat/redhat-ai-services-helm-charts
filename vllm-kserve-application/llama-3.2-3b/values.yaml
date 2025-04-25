@@ -22,3 +22,8 @@ inferenceService:
     key: nvidia.com/gpu
     operator: Equal
     value: "True"
+endpoint:
+  externalRoute:
+    enabled: true
+  auth:
+    enabled: true
