@@ -5,6 +5,8 @@ inferenceService:
   args:
     - "--max-model-len=23000"
     - "--gpu-memory-utilization=0.99"
+    - "--tool-call-parser llama3_json"
+    - "--enable-auto-tool-choice"
   resources:
     limits:
       cpu: '4'
@@ -25,7 +27,7 @@ inferenceService:
 endpoint:
   externalRoute:
     enabled: true
-  auth:
-    enabled: true
-    serviceAccounts:
-      - name: llama-3b-service-account
+  # auth:
+  #   enabled: true
+  #   serviceAccounts:
+  #     - name: llama-3b-service-account
